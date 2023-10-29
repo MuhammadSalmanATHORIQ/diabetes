@@ -1,9 +1,7 @@
 import pickle
 import streamlit as st
-
 # Load the diabetes model
-with open('diabetes_model.sav', 'rb') as model_file:
-    diabetes_model = pickle.load(model_file)
+diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
 
 st.title('Data Mining Prediksi Diabetes')
 
@@ -30,4 +28,4 @@ if st.button('Cek Analisis Diabetes'):
         float(DiabetesPedigreeFunction), float(Age)
     ]]
     predict = diabetes_model.predict(input_data)
-    st.write('Estimasi diabetes:', predict[0])
+    st.write('Estimasi diabetes:', predict)
