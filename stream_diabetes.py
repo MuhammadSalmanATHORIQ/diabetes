@@ -1,33 +1,33 @@
 import pickle
 import streamlit as st
-diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
+
+# Load the diabetes model
+with open('diabetes_model.sav', 'rb') as model_file:
+    diabetes_model = pickle.load(model_file)
 
 st.title('Data Mining Prediksi Diabetes')
 
+# Create input fields using st.columns
 col1, col2 = st.columns(2)
-with col1 :
-    Pregnancies = st.text_input ('Input Nilai Pregnancies ')
-with col2 :
-    Glucose = st.text_input ('Input Nilai Glucose')
-with col1 :
-    BloodPressure = st.text_input ('Input Nilai BloodPressure')
-with col2 :
-    SkinThickness = st.text_input ('Input Nilai SkinThickness')
-with col1 :
-    Insulin = st.text_input ('Input Nilai Insulin')
-with col2 :
-    BMI = st.text_input ('Input Nilai BMI')
-with col1 :
-    DiabetesPedigreeFunction = st.text_input ('Input Nilai DiabetesPedigreeFunction')
-with col2 :
-    Age = st.text_input ('Input Nilai Age')
+with col1:
+    Pregnancies = st.text_input('Input Nilai Pregnancies')
+    BloodPressure = st.text_input('Input Nilai BloodPressure')
+    Insulin = st.text_input('Input Nilai Insulin')
+    DiabetesPedigreeFunction = st.text_input('Input Nilai DiabetesPedigreeFunction')
+with col2:
+    Glucose = st.text_input('Input Nilai Glucose')
+    SkinThickness = st.text_input('Input Nilai SkinThickness')
+    BMI = st.text_input('Input Nilai BMI')
+    Age = st.text_input('Input Nilai Age')
 
-diab_diagnosis = ' '
-if st.button('Test Prediksi Diabetes'):
-    diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+predict = ''
 
-    if(diab_prediction[0] == 0):
-        diab_diagnosis = "Pasien Terkena Diabetes"
-    else :
-        diab_diagnosis = 'Pasien Tidak Terkena Diabetes'
-    st.success(diab_diagnosis)
+if st.button('Cek Analisis Diabetes'):
+    # Convert input values to numbers
+    input_data = [[
+        float(Pregnancies), float(Glucose), float(BloodPressure),
+        float(SkinThickness), float(Insulin), float(BMI),
+        float(DiabetesPedigreeFunction), float(Age)
+    ]]
+    predict = diabetes_model.predict(input_data)
+    st.write('Estimasi diabetes:', predict[0])
