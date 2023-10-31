@@ -214,6 +214,7 @@ print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print("\nAccuracy Score:", accuracy_score(y_test, y_pred))
 ```
+![Alt text](datamining.png) <br>
 
 #### - Split Data & Testing
 
