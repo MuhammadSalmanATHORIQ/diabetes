@@ -55,7 +55,7 @@ Solusi statements dalam konteks analisis dataset diabetes adalah pernyataan meng
 dari pengumpulan data yang telah diambil dari kaggle mengenai prediksi diabetes dataset
 https://www.kaggle.com/datasets/mathchi/diabetes-data-set
 
-### Variabel-variabel pada California Housing Price Prediction Dataset adalah sebagai berikut:
+### Variabel-variabel Diabetes Dataset adalah sebagai berikut:
 0
  1   Pregnancies                 =  float
  2   Glucose                     =  float
@@ -65,6 +65,8 @@ https://www.kaggle.com/datasets/mathchi/diabetes-data-set
  6   BMI                         =  float
  7   DiabetesPedigreeFunction    =  float
  8   Age                         =  float
+
+ Setiap kolom memiliki tipe data int64, yang menunjukkan bahwa data dalam kolom-kolom ini berupa bilangan bulat (integer).
 
 ### Data Preparation
 
